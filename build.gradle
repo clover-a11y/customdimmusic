@@ -1,5 +1,5 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.9-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom'
     id 'maven-publish'
 }
 
@@ -12,26 +12,20 @@ base {
 
 repositories {
     mavenCentral()
-    // JLayer (giải mã/phát MP3 thuần Java) nằm trên Maven Central
 }
 
-// Java 25 là yêu cầu tối thiểu cho Minecraft 26.x (xem thông báo của Fabric)
 java {
     sourceCompatibility = JavaVersion.VERSION_25
     targetCompatibility = JavaVersion.VERSION_25
 }
 
 dependencies {
-    // Fabric loader + Minecraft + mappings chính thức của Mojang
-    // (Yarn không còn được Fabric hỗ trợ chính thức từ 26.1 trở đi)
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-    // Thư viện giải mã & phát MP3 thuần Java (không phụ thuộc engine âm thanh của Minecraft)
     implementation 'javazoom:jlayer:1.0.1'
-    // Nhúng thẳng jlayer vào trong file .jar của mod để người chơi không cần cài thêm gì
     include 'javazoom:jlayer:1.0.1'
 }
 
@@ -46,3 +40,4 @@ processResources {
 tasks.withType(JavaCompile).configureEach {
     it.options.release = 25
 }
+
