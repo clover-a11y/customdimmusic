@@ -1,10 +1,11 @@
 buildscript {
     repositories {
-        maven { url = "https://fabricmc.net" }
+        maven { url = "https://maven.fabricmc.net/" }
         mavenCentral()
     }
     dependencies {
-        classpath "net.fabricmc:fabric-loom:1.9-SNAPSHOT"
+        // Thay đổi dấu hai chấm thành dấu chấm theo quy chuẩn mới của năm 2026
+        classpath "net.fabricmc.fabric-loom:net.fabricmc.fabric-loom.gradle.plugin:1.9-SNAPSHOT"
     }
 }
 
