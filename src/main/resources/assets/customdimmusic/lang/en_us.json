@@ -1,0 +1,12 @@
+{
+  "key.customdimmusic.open_config": "Open Custom Dimension Music settings",
+  "key.category.customdimmusic": "Custom Dimension Music",
+
+  "customdimmusic.config.title": "Custom Dimension Music",
+  "customdimmusic.config.enabled": "Enable custom music",
+  "customdimmusic.config.volume": "Volume",
+  "customdimmusic.config.replace_vanilla": "Mute vanilla music while playing",
+  "customdimmusic.config.done": "Done",
+  "customdimmusic.config.open_folder": "Open music folder",
+  "customdimmusic.config.reload": "Reload music files"
+}
