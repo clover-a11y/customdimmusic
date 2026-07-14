@@ -1,7 +1,15 @@
-plugins {
-    id 'net.fabricmc.fabric-loom'
-    id 'maven-publish'
+buildscript {
+    repositories {
+        maven { url = "https://fabricmc.net" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "net.fabricmc:fabric-loom:1.9-SNAPSHOT"
+    }
 }
+
+apply plugin: "net.fabricmc.fabric-loom"
+apply plugin: "maven-publish"
 
 version = project.mod_version
 group = project.maven_group
@@ -40,4 +48,3 @@ processResources {
 tasks.withType(JavaCompile).configureEach {
     it.options.release = 25
 }
-
