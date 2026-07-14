@@ -1,29 +1,9 @@
-buildscript {
+pluginManagement {
     repositories {
-        maven { url = "https://maven.fabricmc.net/" }
+        maven { url = "https://fabricmc.net" }
+        gradlePluginPortal()
         mavenCentral()
     }
-    dependencies {
-        classpath "net.fabricmc:fabric-loom:1.9-SNAPSHOT"
-    }
 }
 
-apply plugin: "net.fabricmc.fabric-loom"
-apply plugin: "maven-publish"
-
-version = "1.0.0"
-group = "com.clover"
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    minecraft "com.mojang:minecraft:26.1"
-    mappings loom.officialMojangMappings()
-    modImplementation "net.fabricmc:fabric-loader:0.19.3"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:0.138.3+26.1"
-
-    implementation 'javazoom:jlayer:1.0.1'
-    include 'javazoom:jlayer:1.0.1'
-}
+rootProject.name = 'customdimmusic'
