@@ -1,35 +1,33 @@
-name: Build Minecraft Mod
-on: [push, pull_request]
+name: Build Mod
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch: {}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout ma nguon
         uses: actions/checkout@v4
 
-      - name: Set up JDK 25
+      - name: Cai Java 25
         uses: actions/setup-java@v4
         with:
+          distribution: 'temurin'
           java-version: '25'
-          distribution: 'oracle'
 
-      - name: Setup Gradle 9.6.1
+      - name: Cai Gradle 9.5.1
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '9.6.1'
+          gradle-version: 9.5.1
 
-      - name: Generate Gradle Wrapper
-        run: gradle wrapper --gradle-version 9.6.1
+      - name: Build mod
+        run: gradle build --stacktrace
 
-      - name: Make gradlew executable
-        run: chmod +x gradlew
-
-      - name: Build Mod with Gradle
-        run: ./gradlew build
-
-      - name: Upload Mod Jar
+      - name: Upload file jar ket qua
         uses: actions/upload-artifact@v4
         with:
-          name: customdimmusic-mod-jar
+          name: customdimmusic-mod
           path: build/libs/*.jar
