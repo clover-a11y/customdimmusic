@@ -1,16 +1,7 @@
-buildscript {
-    repositories {
-        maven { url = "https://maven.fabricmc.net/" }
-        mavenCentral()
-    }
-    dependencies {
-        // Thay đổi dấu hai chấm thành dấu chấm theo quy chuẩn mới của năm 2026
-        classpath "net.fabricmc.fabric-loom:net.fabricmc.fabric-loom.gradle.plugin:1.9-SNAPSHOT"
-    }
+plugins {
+    id 'fabric-loom' version "${loom_version}"
+    id 'maven-publish'
 }
-
-apply plugin: "net.fabricmc.fabric-loom"
-apply plugin: "maven-publish"
 
 version = project.mod_version
 group = project.maven_group
